@@ -11,9 +11,9 @@ all: makebin
 
 qemu: makebin
 	@qemu-system-aarch64 -M virt \
-	            -cpu cortex-a72 \
-	            -kernel $(OUT)  \
-	            -nographic
+	            -cpu cortex-a72  \
+	            -kernel $(OUT)   \
+	            -nographic       
 
 makebin: build
 	@$(COPIER) -O binary $(ELF_OUT) $(OUT)
