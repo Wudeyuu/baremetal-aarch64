@@ -14,8 +14,9 @@ qemu: makebin
 	@qemu-system-aarch64 -M virt \
 	            -cpu cortex-a72  \
 	            -kernel $(OUT)   \
-	            -nographic       
-
+	            -display vnc=:1  \
+	            -serial stdio
+	            
 makebin: $(ELF_OUT)
 	@$(CROSS_COMPILE)$(COPIER) -O binary $(ELF_OUT) $(OUT)
 
